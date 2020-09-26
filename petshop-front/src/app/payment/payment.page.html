@@ -15,12 +15,12 @@
             <div class="title"> <h4>Resumo do Pedido:</h4> </div>
                 <ion-grid>
                     <ion-row>
-                        <div class="subtitle"> Subtotal </div>
-                            <div class="price"> R$99,00 </div>
+                        <div class="subtitle"> <h6> Subtotal </h6> </div>
+                            <div class="subtotal"> <h6> R$99,00</h6> </div>
                     </ion-row>
                     <ion-row>
                         <div class="subtitle"> Taxa de Entrega: </div>
-                            <div class="price"> R$10,00 </div>
+                            <div class="taxa"> R$10,00 </div>
                     </ion-row>
                 </ion-grid>
             <div class="title">
@@ -41,15 +41,15 @@
                         </ion-item>
 
                         <ion-item>
-                          <ion-label>Débito</ion-label>
-                          <ion-radio mode="md" slot="start" value="débito"></ion-radio>
+                          <ion-label>Boleto</ion-label>
+                          <ion-radio mode="md" slot="start" value="boleto"></ion-radio>
                         </ion-item>
                   </ion-radio-group>
                 </ion-list>
             <div class="cpfForm">
-                <div class="cpfTitle"> <h5>CPF na nota</h5><h6>(Opcional)</h6> </div>
+                <div class="cpfTitle"> <h5>CPF/CNPJ na nota</h5><h6>(Opcional)</h6> </div>
                 <div>
-                    <ion-input type="text" class="form-control cpf-mask" placeholder="Ex.: 000.000.000-00" formControlName="cpf"></ion-input>
+                    <ion-input type="text" name="cpf" formControlName="cpf" placeholder="CPF/CNPJ" [brmasker]="{person: true}" placeholder="Ex.: 000.000.000-00"></ion-input>
                 </div>
             </div>
             </div>

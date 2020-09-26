@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
+
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.page.html',
@@ -14,7 +15,7 @@ export class PaymentPage implements OnInit {
       this.paymentForm = this.formbuilder.group({
           address:[null, [Validators.required, Validators.minLength(10)]],
           formOfPayment:[null, [Validators.required]],
-          cpf:[null, [Validators.required, Validators.minLength(11)]],
+          cpf:[null, [Validators.minLength(11)]],
       })
     }
 
