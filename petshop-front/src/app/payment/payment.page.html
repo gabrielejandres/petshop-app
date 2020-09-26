@@ -5,12 +5,57 @@
 </ion-header>
 
 <ion-content>
-    <div> Entregar em
-        <div> Ilha do Fundao - UFRJ </div>
-    </div>
-    <div> <h5> Resumo do pedido: </h5> </div>
-    <div>Subtotal:</div>
-    <div>Taxa de Entrega:</div>
-    <div> <h5>Total:</h5></div>
-    
+    <div id="cssForm">
+        Entregar em
+        <form [formGroup]="paymentForm" (ngSubmit)="submitForm(paymentForm)">
+            <div>
+                <div class="cssAddress">
+                    <ion-input placeholder="" type="text" formControlName="address" placeholder="Ex: Rua 00, Bairro-Cidade"></ion-input>
+                </div>
+            <div class="title"> <h4>Resumo do Pedido:</h4> </div>
+                <ion-grid>
+                    <ion-row>
+                        <div class="subtitle"> Subtotal </div>
+                            <div class="price"> R$99,00 </div>
+                    </ion-row>
+                    <ion-row>
+                        <div class="subtitle"> Taxa de Entrega: </div>
+                            <div class="price"> R$10,00 </div>
+                    </ion-row>
+                </ion-grid>
+            <div class="title">
+                <h4>Total:</h4>
+                    <div class="price"> R$109,00 </div>
+            </div>
+                <ion-list>
+                    <ion-radio-group formControlName="formOfPayment" value="formOfPayment">
+                     <h5>Forma de Pagamento:</h5>
+                        <ion-item>
+                          <ion-label>Dinheiro</ion-label>
+                          <ion-radio mode="md" slot="start" value="dinheiro"></ion-radio>
+                        </ion-item>
+
+                        <ion-item>
+                          <ion-label>Crédito</ion-label>
+                          <ion-radio mode="md" slot="start" value="crédito"></ion-radio>
+                        </ion-item>
+
+                        <ion-item>
+                          <ion-label>Débito</ion-label>
+                          <ion-radio mode="md" slot="start" value="débito"></ion-radio>
+                        </ion-item>
+                  </ion-radio-group>
+                </ion-list>
+            <div class="cpfForm">
+                <div class="cpfTitle"> <h5>CPF na nota</h5><h6>(Opcional)</h6> </div>
+                <div>
+                    <ion-input type="text" class="form-control cpf-mask" placeholder="Ex.: 000.000.000-00" formControlName="cpf"></ion-input>
+                </div>
+            </div>
+            </div>
+            <div class="buttonMargin">
+                <ion-button type="submit" class="button" shape="round">CONFIRMAR</ion-button>
+            </div>
+        </form>
+        </div>
 </ion-content>
