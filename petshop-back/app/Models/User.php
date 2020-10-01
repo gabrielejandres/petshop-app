@@ -37,4 +37,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Cadastra um novo usuário 
+     * 
+     */
+    public function createUser(Request $request){
+        $this->name = $request->name;
+        $this->email = $request->email;
+        $this->password = bcrypt($request->password);
+        $this->doc_type = $request->doc_type;
+        $this->doc_value = $request->doc_value;
+        $this->phone = $request->phone;
+    }
+    
 }
