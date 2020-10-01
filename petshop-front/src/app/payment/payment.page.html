@@ -36,16 +36,28 @@
                         </ion-item>
 
                         <ion-item>
+                          <ion-label>Boleto</ion-label>
+                          <ion-radio mode="md" slot="start" value="boleto"></ion-radio>
+                        </ion-item>
+
+                        <ion-item>
                           <ion-label>Crédito</ion-label>
                           <ion-radio mode="md" slot="start" value="crédito"></ion-radio>
                         </ion-item>
 
-                        <ion-item>
-                          <ion-label>Boleto</ion-label>
-                          <ion-radio mode="md" slot="start" value="boleto"></ion-radio>
-                        </ion-item>
                   </ion-radio-group>
                 </ion-list>
+
+                    <ion-card>
+                        <ion-input placeholder="Número do Cartão" type="text" formControlName="numberCard"></ion-input>
+                        <ion-input maxlength="4" placeholder="Validade" type="text" formControlName="validity"></ion-input>
+                        <p *ngIf="paymentForm.controls.validity.invalid && paymentForm.controls.validity.touched"> 4 caracteres obrigatórios </p>
+                        <ion-input maxlength="3" placeholder="CVV" type="text" formControlName="cvv"></ion-input>
+                        <p *ngIf="paymentForm.controls.cvv.invalid && paymentForm.controls.cvv.touched"> 3 caracteres obrigatórios </p>
+                        <ion-input placeholder="Nome do Titular" type="text" formControlName="name"></ion-input>
+                        <ion-input placeholder="CPF/CNPJ do titular" type="text" formControlName="cpfOrCnpj"></ion-input>
+                    </ion-card>
+
             <div class="cpfForm">
                 <div class="cpfTitle"> <h5>CPF/CNPJ na nota</h5><h6>(Opcional)</h6> </div>
                 <div>
@@ -54,7 +66,7 @@
             </div>
             </div>
             <div class="buttonMargin">
-                <ion-button type="submit" class="button" shape="round">CONFIRMAR</ion-button>
+                <ion-button type="submit" class="button" shape="round" [disabled]="paymentForm.invalid">CONFIRMAR</ion-button>
             </div>
         </form>
         </div>
